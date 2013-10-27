@@ -143,7 +143,7 @@ const CGFloat kALDClockAnimationIncrement = 30;
         _hour = (hour+self.hourOffset + 24) % 24;
         
         self.totalRotation = rotation;
-        [self setNeedsDisplay];
+        [self updateDisplayAndListeners];
     }
 }
 
