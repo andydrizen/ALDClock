@@ -147,10 +147,64 @@ const CGFloat kALDClockAnimationIncrement = 30;
     }
 }
 
+- (void)setTitle:(NSString *)title
+{
+	_title = title;
+	[self setNeedsDisplay];
+}
+
+- (void)setSubtitle:(NSString *)subtitle
+{
+	_subtitle = subtitle;
+	[self setNeedsDisplay];
+}
+
 - (void)setBorderColor:(UIColor *)borderColor
 {
     _borderColor = borderColor;
     [self setNeedsDisplay];
+}
+
+- (void)setMajorMarkingColor:(UIColor *)majorMarkingColor
+{
+	_majorMarkingColor = majorMarkingColor;
+	[self setNeedsDisplay];
+}
+
+-(void)setMinorMarkingColor:(UIColor *)minorMarkingColor
+{
+	_minorMarkingColor = minorMarkingColor;
+	[self setNeedsDisplay];
+}
+
+- (void)setMajorMarkingLength:(CGFloat)majorMarkingLength
+{
+	_majorMarkingLength = majorMarkingLength;
+	[self setNeedsDisplay];
+}
+
+- (void)setMinorMarkingLength:(CGFloat)minorMarkingLength
+{
+	_minorMarkingLength = minorMarkingLength;
+	[self setNeedsDisplay];
+}
+
+ - (void)setMajorMarkingThickness:(CGFloat)majorMarkingThickness
+{
+	_majorMarkingThickness = majorMarkingThickness;
+	[self setNeedsDisplay];
+}
+
+- (void)setMinorMarkingThickness:(CGFloat)minorMarkingThickness
+{
+	_minorMarkingThickness = minorMarkingThickness;
+	[self setNeedsDisplay];
+}
+
+- (void)setMarkingInset:(CGFloat)markingInset
+{
+	_markingsInset = markingInset;
+	[self setNeedsDisplay];
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor
