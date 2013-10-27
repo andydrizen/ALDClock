@@ -1,0 +1,473 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A1407E80181BAD0600272F7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1407E7F181BAD0600272F7E /* Foundation.framework */; };
+		A1407E82181BAD0600272F7E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1407E81181BAD0600272F7E /* CoreGraphics.framework */; };
+		A1407E84181BAD0600272F7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1407E83181BAD0600272F7E /* UIKit.framework */; };
+		A1407E8A181BAD0700272F7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1407E88181BAD0700272F7E /* InfoPlist.strings */; };
+		A1407E8C181BAD0700272F7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1407E8B181BAD0700272F7E /* main.m */; };
+		A1407E90181BAD0700272F7E /* ALDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1407E8F181BAD0700272F7E /* ALDAppDelegate.m */; };
+		A1407E92181BAD0700272F7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1407E91181BAD0700272F7E /* Images.xcassets */; };
+		A1407E99181BAD0700272F7E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1407E98181BAD0700272F7E /* XCTest.framework */; };
+		A1407E9A181BAD0700272F7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1407E7F181BAD0600272F7E /* Foundation.framework */; };
+		A1407E9B181BAD0700272F7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1407E83181BAD0600272F7E /* UIKit.framework */; };
+		A1407EA3181BAD0700272F7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1407EA1181BAD0700272F7E /* InfoPlist.strings */; };
+		A1407EA5181BAD0700272F7E /* ALDClockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1407EA4181BAD0700272F7E /* ALDClockTests.m */; };
+		A1407EB0181BAD3200272F7E /* ALDClock.m in Sources */ = {isa = PBXBuildFile; fileRef = A1407EAF181BAD3200272F7E /* ALDClock.m */; };
+		A1407EB4181BAD4800272F7E /* ALDRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1407EB2181BAD4800272F7E /* ALDRootViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A1407E9C181BAD0700272F7E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1407E74181BAD0600272F7E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1407E7B181BAD0600272F7E;
+			remoteInfo = ALDClock;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A1407E7C181BAD0600272F7E /* ALDClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ALDClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1407E7F181BAD0600272F7E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A1407E81181BAD0600272F7E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A1407E83181BAD0600272F7E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A1407E87181BAD0700272F7E /* ALDClock-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ALDClock-Info.plist"; sourceTree = "<group>"; };
+		A1407E89181BAD0700272F7E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A1407E8B181BAD0700272F7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A1407E8D181BAD0700272F7E /* ALDClock-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ALDClock-Prefix.pch"; sourceTree = "<group>"; };
+		A1407E8E181BAD0700272F7E /* ALDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALDAppDelegate.h; sourceTree = "<group>"; };
+		A1407E8F181BAD0700272F7E /* ALDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALDAppDelegate.m; sourceTree = "<group>"; };
+		A1407E91181BAD0700272F7E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A1407E97181BAD0700272F7E /* ALDClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ALDClockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1407E98181BAD0700272F7E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A1407EA0181BAD0700272F7E /* ALDClockTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ALDClockTests-Info.plist"; sourceTree = "<group>"; };
+		A1407EA2181BAD0700272F7E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A1407EA4181BAD0700272F7E /* ALDClockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALDClockTests.m; sourceTree = "<group>"; };
+		A1407EAE181BAD3200272F7E /* ALDClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALDClock.h; sourceTree = "<group>"; };
+		A1407EAF181BAD3200272F7E /* ALDClock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALDClock.m; sourceTree = "<group>"; usesTabs = 1; };
+		A1407EB1181BAD4800272F7E /* ALDRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALDRootViewController.h; sourceTree = "<group>"; };
+		A1407EB2181BAD4800272F7E /* ALDRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALDRootViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A1407E79181BAD0600272F7E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1407E82181BAD0600272F7E /* CoreGraphics.framework in Frameworks */,
+				A1407E84181BAD0600272F7E /* UIKit.framework in Frameworks */,
+				A1407E80181BAD0600272F7E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1407E94181BAD0700272F7E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1407E99181BAD0700272F7E /* XCTest.framework in Frameworks */,
+				A1407E9B181BAD0700272F7E /* UIKit.framework in Frameworks */,
+				A1407E9A181BAD0700272F7E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A1407E73181BAD0600272F7E = {
+			isa = PBXGroup;
+			children = (
+				A1407E85181BAD0600272F7E /* ALDClock */,
+				A1407E9E181BAD0700272F7E /* ALDClockTests */,
+				A1407E7E181BAD0600272F7E /* Frameworks */,
+				A1407E7D181BAD0600272F7E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A1407E7D181BAD0600272F7E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1407E7C181BAD0600272F7E /* ALDClock.app */,
+				A1407E97181BAD0700272F7E /* ALDClockTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A1407E7E181BAD0600272F7E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A1407E7F181BAD0600272F7E /* Foundation.framework */,
+				A1407E81181BAD0600272F7E /* CoreGraphics.framework */,
+				A1407E83181BAD0600272F7E /* UIKit.framework */,
+				A1407E98181BAD0700272F7E /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A1407E85181BAD0600272F7E /* ALDClock */ = {
+			isa = PBXGroup;
+			children = (
+				A1407E8E181BAD0700272F7E /* ALDAppDelegate.h */,
+				A1407E8F181BAD0700272F7E /* ALDAppDelegate.m */,
+				A1407EB1181BAD4800272F7E /* ALDRootViewController.h */,
+				A1407EB2181BAD4800272F7E /* ALDRootViewController.m */,
+				A1407EAE181BAD3200272F7E /* ALDClock.h */,
+				A1407EAF181BAD3200272F7E /* ALDClock.m */,
+				A1407E91181BAD0700272F7E /* Images.xcassets */,
+				A1407E86181BAD0700272F7E /* Supporting Files */,
+			);
+			path = ALDClock;
+			sourceTree = "<group>";
+		};
+		A1407E86181BAD0700272F7E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A1407E87181BAD0700272F7E /* ALDClock-Info.plist */,
+				A1407E88181BAD0700272F7E /* InfoPlist.strings */,
+				A1407E8B181BAD0700272F7E /* main.m */,
+				A1407E8D181BAD0700272F7E /* ALDClock-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A1407E9E181BAD0700272F7E /* ALDClockTests */ = {
+			isa = PBXGroup;
+			children = (
+				A1407EA4181BAD0700272F7E /* ALDClockTests.m */,
+				A1407E9F181BAD0700272F7E /* Supporting Files */,
+			);
+			path = ALDClockTests;
+			sourceTree = "<group>";
+		};
+		A1407E9F181BAD0700272F7E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A1407EA0181BAD0700272F7E /* ALDClockTests-Info.plist */,
+				A1407EA1181BAD0700272F7E /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A1407E7B181BAD0600272F7E /* ALDClock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1407EA8181BAD0700272F7E /* Build configuration list for PBXNativeTarget "ALDClock" */;
+			buildPhases = (
+				A1407E78181BAD0600272F7E /* Sources */,
+				A1407E79181BAD0600272F7E /* Frameworks */,
+				A1407E7A181BAD0600272F7E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ALDClock;
+			productName = ALDClock;
+			productReference = A1407E7C181BAD0600272F7E /* ALDClock.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A1407E96181BAD0700272F7E /* ALDClockTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1407EAB181BAD0700272F7E /* Build configuration list for PBXNativeTarget "ALDClockTests" */;
+			buildPhases = (
+				A1407E93181BAD0700272F7E /* Sources */,
+				A1407E94181BAD0700272F7E /* Frameworks */,
+				A1407E95181BAD0700272F7E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1407E9D181BAD0700272F7E /* PBXTargetDependency */,
+			);
+			name = ALDClockTests;
+			productName = ALDClockTests;
+			productReference = A1407E97181BAD0700272F7E /* ALDClockTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A1407E74181BAD0600272F7E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ALD;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Andy Drizen";
+				TargetAttributes = {
+					A1407E96181BAD0700272F7E = {
+						TestTargetID = A1407E7B181BAD0600272F7E;
+					};
+				};
+			};
+			buildConfigurationList = A1407E77181BAD0600272F7E /* Build configuration list for PBXProject "ALDClock" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A1407E73181BAD0600272F7E;
+			productRefGroup = A1407E7D181BAD0600272F7E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A1407E7B181BAD0600272F7E /* ALDClock */,
+				A1407E96181BAD0700272F7E /* ALDClockTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A1407E7A181BAD0600272F7E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1407E8A181BAD0700272F7E /* InfoPlist.strings in Resources */,
+				A1407E92181BAD0700272F7E /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1407E95181BAD0700272F7E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1407EA3181BAD0700272F7E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A1407E78181BAD0600272F7E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1407E90181BAD0700272F7E /* ALDAppDelegate.m in Sources */,
+				A1407E8C181BAD0700272F7E /* main.m in Sources */,
+				A1407EB4181BAD4800272F7E /* ALDRootViewController.m in Sources */,
+				A1407EB0181BAD3200272F7E /* ALDClock.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1407E93181BAD0700272F7E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1407EA5181BAD0700272F7E /* ALDClockTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A1407E9D181BAD0700272F7E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1407E7B181BAD0600272F7E /* ALDClock */;
+			targetProxy = A1407E9C181BAD0700272F7E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A1407E88181BAD0700272F7E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1407E89181BAD0700272F7E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A1407EA1181BAD0700272F7E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1407EA2181BAD0700272F7E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A1407EA6181BAD0700272F7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A1407EA7181BAD0700272F7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A1407EA9181BAD0700272F7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ALDClock/ALDClock-Prefix.pch";
+				INFOPLIST_FILE = "ALDClock/ALDClock-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A1407EAA181BAD0700272F7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ALDClock/ALDClock-Prefix.pch";
+				INFOPLIST_FILE = "ALDClock/ALDClock-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A1407EAC181BAD0700272F7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ALDClock.app/ALDClock";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ALDClock/ALDClock-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ALDClockTests/ALDClockTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		A1407EAD181BAD0700272F7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ALDClock.app/ALDClock";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ALDClock/ALDClock-Prefix.pch";
+				INFOPLIST_FILE = "ALDClockTests/ALDClockTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A1407E77181BAD0600272F7E /* Build configuration list for PBXProject "ALDClock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1407EA6181BAD0700272F7E /* Debug */,
+				A1407EA7181BAD0700272F7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1407EA8181BAD0700272F7E /* Build configuration list for PBXNativeTarget "ALDClock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1407EA9181BAD0700272F7E /* Debug */,
+				A1407EAA181BAD0700272F7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1407EAB181BAD0700272F7E /* Build configuration list for PBXNativeTarget "ALDClockTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1407EAC181BAD0700272F7E /* Debug */,
+				A1407EAD181BAD0700272F7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A1407E74181BAD0600272F7E /* Project object */;
+}
