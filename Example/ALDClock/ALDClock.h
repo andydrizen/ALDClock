@@ -72,10 +72,10 @@
  */
 @property (nonatomic, strong) UIColor *majorMarkingColor;
 @property (nonatomic, strong) UIColor *minorMarkingColor;
-@property (nonatomic, assign) CGFloat majorMarkingsThickness;
-@property (nonatomic, assign) CGFloat minorMarkingsThickness;
-@property (nonatomic, assign) CGFloat majorMarkingsLength;
-@property (nonatomic, assign) CGFloat minorMarkingsLength;
+@property (nonatomic, assign) CGFloat majorMarkingThickness;
+@property (nonatomic, assign) CGFloat minorMarkingThickness;
+@property (nonatomic, assign) CGFloat majorMarkingLength;
+@property (nonatomic, assign) CGFloat minorMarkingLength;
 @property (nonatomic, assign) CGFloat markingsInset;
 
 /**

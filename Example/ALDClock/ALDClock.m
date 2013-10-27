@@ -70,13 +70,13 @@ const CGFloat kALDClockAnimationIncrement = 30;
         _hourHandColor = [UIColor colorWithWhite:0.2 alpha:1.0];
         
         // Set default thicknesses
-        _majorMarkingsThickness = 1.0f;
-        _minorMarkingsThickness = 1.0f;
+        _majorMarkingThickness = 1.0f;
+        _minorMarkingThickness = 1.0f;
         _minuteHandThickness = 5.0f;
         _hourHandThickness = 5.0f;
         
-        _majorMarkingsLength = 5.0f;
-        _minorMarkingsLength = 1.0f;
+        _majorMarkingLength = 5.0f;
+        _minorMarkingLength = 1.0f;
         
         _markingsInset = 5.0f;
         
@@ -363,7 +363,7 @@ const CGFloat kALDClockAnimationIncrement = 30;
     // Set the colour of the major markings
     CGContextSetStrokeColorWithColor(context, self.majorMarkingColor.CGColor);
     // Set the major marking width
-    CGContextSetLineWidth(context, self.majorMarkingsThickness);
+    CGContextSetLineWidth(context, self.majorMarkingThickness);
 
     // Draw the major markings
     for(unsigned i = 0; i < 12; i ++)
@@ -373,8 +373,8 @@ const CGFloat kALDClockAnimationIncrement = 30;
 
         CGFloat markingX1 = center.x + markingDistanceFromCenter * cos((M_PI/180)* i * 30 + M_PI);
         CGFloat markingY1 = center.y + - 1 * markingDistanceFromCenter * sin((M_PI/180)* i * 30);
-        CGFloat markingX2 = center.x + (markingDistanceFromCenter - self.majorMarkingsLength) * cos((M_PI/180)* i * 30 + M_PI);
-        CGFloat markingY2 = center.y + - 1 * (markingDistanceFromCenter - self.majorMarkingsLength) * sin((M_PI/180)* i * 30);
+        CGFloat markingX2 = center.x + (markingDistanceFromCenter - self.majorMarkingLength) * cos((M_PI/180)* i * 30 + M_PI);
+        CGFloat markingY2 = center.y + - 1 * (markingDistanceFromCenter - self.majorMarkingLength) * sin((M_PI/180)* i * 30);
         
         // Move the cursor to the edge of the marking
         CGContextMoveToPoint(context, markingX1, markingY1);
@@ -390,7 +390,7 @@ const CGFloat kALDClockAnimationIncrement = 30;
     CGContextSetStrokeColorWithColor(context, self.minorMarkingColor.CGColor);
     
     // Set the minor minor width
-    CGContextSetLineWidth(context, self.minorMarkingsThickness);
+    CGContextSetLineWidth(context, self.minorMarkingThickness);
     
     for(NSInteger i = 0; i < 60; i ++)
     {
@@ -404,8 +404,8 @@ const CGFloat kALDClockAnimationIncrement = 30;
         CGFloat markingX1 = center.x + markingDistanceFromCenter * cos((M_PI/180)* i * 6 + M_PI);
         CGFloat markingY1 = center.y + - 1 * markingDistanceFromCenter * sin((M_PI/180)* i * 6);
 
-        CGFloat markingX2 = center.x + (markingDistanceFromCenter - self.minorMarkingsLength) * cos( (M_PI/180)* i * 6+ M_PI);
-        CGFloat markingY2 = center.y + - 1 * (markingDistanceFromCenter - self.minorMarkingsLength) * sin((M_PI/180)* i * 6);
+        CGFloat markingX2 = center.x + (markingDistanceFromCenter - self.minorMarkingLength) * cos( (M_PI/180)* i * 6+ M_PI);
+        CGFloat markingY2 = center.y + - 1 * (markingDistanceFromCenter - self.minorMarkingLength) * sin((M_PI/180)* i * 6);
         
         // Move the cursor to the edge of the marking
         CGContextMoveToPoint(context, markingX1, markingY1);
@@ -422,7 +422,7 @@ const CGFloat kALDClockAnimationIncrement = 30;
     {
         UIFont *digitFont = self.digitAttributes[NSFontAttributeName];
 
-        CGFloat markingDistanceFromCenter = rectForClockFace.size.width/2.0f - digitFont.lineHeight/4.0f - self.markingsInset - MAX(self.majorMarkingsLength, self.minorMarkingsLength);
+        CGFloat markingDistanceFromCenter = rectForClockFace.size.width/2.0f - digitFont.lineHeight/4.0f - self.markingsInset - MAX(self.majorMarkingLength, self.minorMarkingLength);
         NSInteger offset = 4;
         
         CGFloat labelX = center.x + (markingDistanceFromCenter - digitFont.lineHeight/2.0f) * cos( (M_PI/180)* (i+offset) * 30 + M_PI);
