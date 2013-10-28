@@ -1,3 +1,5 @@
+[![ScreenShot](https://www.dropbox.com/s/uxgdr94hbe78jzu/Screenshot%202013-10-27%2017.54.55.png)](http://youtu.be/cH2hla6Cl_g)
+
 ## What is this?
 
 An interactive clock component for use in iOS projects.
