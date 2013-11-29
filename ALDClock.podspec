@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 
   s.homepage     = "https://github.com/andydrizen/ALDClock"
   s.screenshots  = "https://raw.github.com/andydrizen/ALDClock/master/VideoScreenshot.png"
-  s.license      = { :type => 'BSD', :file => 'LICENSE' }
+  s.license      = { :type => 'BSD', :file => 'LICENCE' }
   s.author       = { "Andy Drizen" => "andydrizen@gmail.com" }
   s.platform     = :ios
   s.source       = { :git => "https://github.com/andydrizen/ALDClock.git", :tag => "1.0.0" }
