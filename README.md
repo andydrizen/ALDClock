@@ -1,4 +1,4 @@
-[![ScreenShot](https://www.dropbox.com/s/uxgdr94hbe78jzu/Screenshot%202013-10-27%2017.54.55.png)](http://youtu.be/cH2hla6Cl_g)
+[![ScreenShot](https://raw.github.com/andydrizen/ALDClock/master/VideoScreenshot.png)](http://youtu.be/cH2hla6Cl_g)
 
 ## What is this?
 
