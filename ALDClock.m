@@ -53,6 +53,8 @@ const CGFloat kALDClockAnimationIncrement = 30;
     if (self) {
         [super setBackgroundColor:[UIColor clearColor]];
         
+        _secondsFromGMT = 0;
+        
         // Have the hands pointing up initially.
         _totalRotation = 0;
         
@@ -70,13 +72,13 @@ const CGFloat kALDClockAnimationIncrement = 30;
         _hourHandColor = [UIColor colorWithWhite:0.2 alpha:1.0];
         
         // Set default thicknesses
-        _majorMarkingsThickness = 1.0f;
-        _minorMarkingsThickness = 1.0f;
+        _majorMarkingThickness = 1.0f;
+        _minorMarkingThickness = 1.0f;
         _minuteHandThickness = 5.0f;
         _hourHandThickness = 5.0f;
         
-        _majorMarkingsLength = 5.0f;
-        _minorMarkingsLength = 1.0f;
+        _majorMarkingLength = 5.0f;
+        _minorMarkingLength = 1.0f;
         
         _markingsInset = 5.0f;
         
@@ -89,15 +91,15 @@ const CGFloat kALDClockAnimationIncrement = 30;
         paragraphStyle.alignment = NSTextAlignmentCenter;
         
         _titleAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithWhite:0.2 alpha:1.0],
-                            NSParagraphStyleAttributeName: paragraphStyle,
-                            NSFontAttributeName : [UIFont systemFontOfSize:16.0f]};
+                             NSParagraphStyleAttributeName: paragraphStyle,
+                             NSFontAttributeName : [UIFont systemFontOfSize:16.0f]};
         _subtitleAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithWhite:0.4 alpha:1.0],
                                 NSParagraphStyleAttributeName: paragraphStyle,
                                 NSFontAttributeName : [UIFont systemFontOfSize:13.0f]};
         
         _digitAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithWhite:0.0 alpha:1.0],
-                                NSParagraphStyleAttributeName: paragraphStyle,
-                                NSFontAttributeName : [UIFont systemFontOfSize:16.0f]};
+                             NSParagraphStyleAttributeName: paragraphStyle,
+                             NSFontAttributeName : [UIFont systemFontOfSize:16.0f]};
     }
     return self;
 }
@@ -130,27 +132,88 @@ const CGFloat kALDClockAnimationIncrement = 30;
     if(self.isAnimating)
         return;
     
-    CGFloat rotation = [self rotationForHour:hour+self.hourOffset minute:minute+self.minuteOffset];
+    CGFloat newHour = ((hour+self.hourOffset + 24) % 24);
+    CGFloat newMinute = ((minute+self.minuteOffset + 60) % 60);
+    if(minute+self.minuteOffset >= 60)
+        newHour ++;
+    else if(minute+self.minuteOffset < 0)
+        newHour --;
+    
+    CGFloat rotation = [self rotationForHour:newHour minute:newMinute];
     self.targetRotation = rotation;
     
     if(animated)
     {
-        [self animateClockToHour:hour+self.hourOffset minute:minute+self.minuteOffset];
+        [self animateClockToHour:newHour minute:newMinute];
     }
     else
     {
-        _minute = (minute+self.minuteOffset + 60) % 60;
-        _hour = (hour+self.hourOffset + 24) % 24;
+        _minute = minute;
+        _hour = hour;
         
         self.totalRotation = rotation;
-        [self setNeedsDisplay];
+        [self updateDisplayAndListeners];
     }
+}
+
+- (void)setTitle:(NSString *)title
+{
+	_title = title;
+	[self setNeedsDisplay];
+}
+
+- (void)setSubtitle:(NSString *)subtitle
+{
+	_subtitle = subtitle;
+	[self setNeedsDisplay];
 }
 
 - (void)setBorderColor:(UIColor *)borderColor
 {
     _borderColor = borderColor;
     [self setNeedsDisplay];
+}
+
+- (void)setMajorMarkingColor:(UIColor *)majorMarkingColor
+{
+	_majorMarkingColor = majorMarkingColor;
+	[self setNeedsDisplay];
+}
+
+-(void)setMinorMarkingColor:(UIColor *)minorMarkingColor
+{
+	_minorMarkingColor = minorMarkingColor;
+	[self setNeedsDisplay];
+}
+
+- (void)setMajorMarkingLength:(CGFloat)majorMarkingLength
+{
+	_majorMarkingLength = majorMarkingLength;
+	[self setNeedsDisplay];
+}
+
+- (void)setMinorMarkingLength:(CGFloat)minorMarkingLength
+{
+	_minorMarkingLength = minorMarkingLength;
+	[self setNeedsDisplay];
+}
+
+- (void)setMajorMarkingThickness:(CGFloat)majorMarkingThickness
+{
+	_majorMarkingThickness = majorMarkingThickness;
+	[self setNeedsDisplay];
+}
+
+- (void)setMinorMarkingThickness:(CGFloat)minorMarkingThickness
+{
+	_minorMarkingThickness = minorMarkingThickness;
+	[self setNeedsDisplay];
+}
+
+- (void)setMarkingInset:(CGFloat)markingInset
+{
+	_markingsInset = markingInset;
+	[self setNeedsDisplay];
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor
@@ -250,7 +313,8 @@ const CGFloat kALDClockAnimationIncrement = 30;
 
 #pragma mark - Tracking Methods
 
--(BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
+-(BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
+{
     [super beginTrackingWithTouch:touch withEvent:event];
     
     [self sendActionsForControlEvents:UIControlEventTouchDragEnter];
@@ -339,9 +403,9 @@ const CGFloat kALDClockAnimationIncrement = 30;
     // --------------------------
     
     CGRect titleRect = CGRectMake(CGRectGetMinX(rectForClockFace) + CGRectGetWidth(rectForClockFace)*0.2f,
-                                 CGRectGetMinY(rectForClockFace) + CGRectGetHeight(rectForClockFace)*0.25f,
-                                 CGRectGetWidth(rectForClockFace)*0.6f,
-                                 20.0f);
+                                  CGRectGetMinY(rectForClockFace) + CGRectGetHeight(rectForClockFace)*0.25f,
+                                  CGRectGetWidth(rectForClockFace)*0.6f,
+                                  20.0f);
     
     [self.title drawInRect:titleRect withAttributes:self.titleAttributes];
     
@@ -363,18 +427,18 @@ const CGFloat kALDClockAnimationIncrement = 30;
     // Set the colour of the major markings
     CGContextSetStrokeColorWithColor(context, self.majorMarkingColor.CGColor);
     // Set the major marking width
-    CGContextSetLineWidth(context, self.majorMarkingsThickness);
-
+    CGContextSetLineWidth(context, self.majorMarkingThickness);
+    
     // Draw the major markings
     for(unsigned i = 0; i < 12; i ++)
     {
         // Get the location of the end of the hand
         CGFloat markingDistanceFromCenter = rectForClockFace.size.width/2.0f - self.markingsInset;
-
+        
         CGFloat markingX1 = center.x + markingDistanceFromCenter * cos((M_PI/180)* i * 30 + M_PI);
         CGFloat markingY1 = center.y + - 1 * markingDistanceFromCenter * sin((M_PI/180)* i * 30);
-        CGFloat markingX2 = center.x + (markingDistanceFromCenter - self.majorMarkingsLength) * cos((M_PI/180)* i * 30 + M_PI);
-        CGFloat markingY2 = center.y + - 1 * (markingDistanceFromCenter - self.majorMarkingsLength) * sin((M_PI/180)* i * 30);
+        CGFloat markingX2 = center.x + (markingDistanceFromCenter - self.majorMarkingLength) * cos((M_PI/180)* i * 30 + M_PI);
+        CGFloat markingY2 = center.y + - 1 * (markingDistanceFromCenter - self.majorMarkingLength) * sin((M_PI/180)* i * 30);
         
         // Move the cursor to the edge of the marking
         CGContextMoveToPoint(context, markingX1, markingY1);
@@ -385,12 +449,12 @@ const CGFloat kALDClockAnimationIncrement = 30;
     
     // Draw minor markings.
     CGContextDrawPath(context, kCGPathStroke);
-
+    
     // Set the colour of the minor markings
     CGContextSetStrokeColorWithColor(context, self.minorMarkingColor.CGColor);
     
     // Set the minor minor width
-    CGContextSetLineWidth(context, self.minorMarkingsThickness);
+    CGContextSetLineWidth(context, self.minorMarkingThickness);
     
     for(NSInteger i = 0; i < 60; i ++)
     {
@@ -403,9 +467,9 @@ const CGFloat kALDClockAnimationIncrement = 30;
         
         CGFloat markingX1 = center.x + markingDistanceFromCenter * cos((M_PI/180)* i * 6 + M_PI);
         CGFloat markingY1 = center.y + - 1 * markingDistanceFromCenter * sin((M_PI/180)* i * 6);
-
-        CGFloat markingX2 = center.x + (markingDistanceFromCenter - self.minorMarkingsLength) * cos( (M_PI/180)* i * 6+ M_PI);
-        CGFloat markingY2 = center.y + - 1 * (markingDistanceFromCenter - self.minorMarkingsLength) * sin((M_PI/180)* i * 6);
+        
+        CGFloat markingX2 = center.x + (markingDistanceFromCenter - self.minorMarkingLength) * cos( (M_PI/180)* i * 6+ M_PI);
+        CGFloat markingY2 = center.y + - 1 * (markingDistanceFromCenter - self.minorMarkingLength) * sin((M_PI/180)* i * 6);
         
         // Move the cursor to the edge of the marking
         CGContextMoveToPoint(context, markingX1, markingY1);
@@ -421,8 +485,8 @@ const CGFloat kALDClockAnimationIncrement = 30;
     for(unsigned i = 0; i < 12; i ++)
     {
         UIFont *digitFont = self.digitAttributes[NSFontAttributeName];
-
-        CGFloat markingDistanceFromCenter = rectForClockFace.size.width/2.0f - digitFont.lineHeight/4.0f - self.markingsInset - MAX(self.majorMarkingsLength, self.minorMarkingsLength);
+        
+        CGFloat markingDistanceFromCenter = rectForClockFace.size.width/2.0f - digitFont.lineHeight/4.0f - self.markingsInset - MAX(self.majorMarkingLength, self.minorMarkingLength);
         NSInteger offset = 4;
         
         CGFloat labelX = center.x + (markingDistanceFromCenter - digitFont.lineHeight/2.0f) * cos( (M_PI/180)* (i+offset) * 30 + M_PI);
@@ -550,7 +614,7 @@ const CGFloat kALDClockAnimationIncrement = 30;
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%d:%d, isAM:%d, isAnimating:%d", self.hour, self.minute, self.isAM, self.isAnimating];
+    return [NSString stringWithFormat:@"%02d:%02d, isAM:%d, isAnimating:%d", (int)self.hour, (int)self.minute, self.isAM, self.isAnimating];
 }
 
 #pragma mark - Custom Setters
@@ -604,6 +668,16 @@ const CGFloat kALDClockAnimationIncrement = 30;
     ALDVector3D crossProduct = [self crossProductOfVector:v1 andVector:v2];
 	BOOL isCounterClockwise = ([self dotProductOfVector:crossProduct andVector:normal] < 0)? YES : NO;
     return isCounterClockwise;
+}
+
+- (NSInteger)hourOffset
+{
+    return floor(self.secondsFromGMT/(60*60.0f));
+}
+
+- (NSInteger)minuteOffset
+{
+    return floor(self.secondsFromGMT/(60.0f)) - 60*self.hourOffset;
 }
 
 @end

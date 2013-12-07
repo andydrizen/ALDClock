@@ -30,17 +30,32 @@
 @interface ALDClock : UIControl
 
 /**
- The hour and minute that the clock is currently displaying.
+ The hour that the clock is currently displaying.
  */
 @property (nonatomic, assign) NSInteger hour;
-@property (nonatomic, assign) NSInteger minute;
+
+/**
+ The minute that the clock is currently displaying.
+ */
+ @property (nonatomic, assign) NSInteger minute;
 
 /**
  When setting a time, you may wish to always work with UTC. In this case,
  you can provide an offset for other locales.
  */
-@property (nonatomic, assign) NSInteger hourOffset;
-@property (nonatomic, assign) NSInteger minuteOffset;
+@property (nonatomic, assign) NSInteger secondsFromGMT;
+
+/**
+ Provides the hour component (in the range +/- [0,24]) that this clock is ahead 
+ or behind compared to GMT
+ */
+@property (nonatomic, assign, readonly) NSInteger hourOffset;
+
+/**
+ Provides the minute component (in the range +/-[0, 60]) that this clock is ahead 
+ or behind compared to GMT. 
+ */
+@property (nonatomic, assign, readonly) NSInteger minuteOffset;
 
 /**
  A short string shown near the top of the clock.
@@ -53,11 +68,18 @@
 @property (nonatomic, strong) NSString *subtitle;
 
 /**
- Attributes that describe how the title, subtitle and digits 
- should be rendered.
+ Attributes that describe how the title should be rendered.
  */
 @property (nonatomic, strong) NSDictionary *titleAttributes;
+
+/**
+ Attributes that describe how the subtitle should be rendered.
+ */
 @property (nonatomic, strong) NSDictionary *subtitleAttributes;
+
+/**
+ Attributes that describe how the digits should be rendered.
+ */
 @property (nonatomic, strong) NSDictionary *digitAttributes;
 
 /**
@@ -67,29 +89,69 @@
 @property (nonatomic, assign) BOOL minuteHandMovesSmoothly;
 
 /**
- Customisation for the markings that are displayed around the circumference
- of the clock.
+ The color of the major markings (the hours markers)
  */
 @property (nonatomic, strong) UIColor *majorMarkingColor;
+
+/**
+ The color of the major markings (the minute markers)
+ */
 @property (nonatomic, strong) UIColor *minorMarkingColor;
-@property (nonatomic, assign) CGFloat majorMarkingsThickness;
-@property (nonatomic, assign) CGFloat minorMarkingsThickness;
-@property (nonatomic, assign) CGFloat majorMarkingsLength;
-@property (nonatomic, assign) CGFloat minorMarkingsLength;
+
+/**
+ The thickness of the major markings  (the hours markers)
+ */
+@property (nonatomic, assign) CGFloat majorMarkingThickness;
+
+/**
+ The thickness of the minor markings  (the minute markers)
+ */
+@property (nonatomic, assign) CGFloat minorMarkingThickness;
+
+/**
+ The length of the major markings  (the hour markers)
+ */
+@property (nonatomic, assign) CGFloat majorMarkingLength;
+
+/**
+ The length of the minor markings  (the minute markers)
+ */
+@property (nonatomic, assign) CGFloat minorMarkingLength;
+
+/**
+ The distance the markings are presented from the circumference
+ of the clock
+ */
 @property (nonatomic, assign) CGFloat markingsInset;
 
 /**
- Customisation for the clock hands.
+ Color of the minute hand.
  */
 @property (nonatomic, strong) UIColor *minuteHandColor;
+
+/**
+ Color of the hour hand.
+ */
 @property (nonatomic, strong) UIColor *hourHandColor;
+
+/**
+ Thickness of the minute hand.
+ */
 @property (nonatomic, assign) CGFloat minuteHandThickness;
+
+/**
+ Thickness of the hour hand.
+ */
 @property (nonatomic, assign) CGFloat hourHandThickness;
 
 /**
- Customisation for the border the clock.
+ Color of the border of the clock
  */
 @property (nonatomic, strong) UIColor *borderColor;
+
+/**
+ Thickness of the border of the clock
+ */
 @property (nonatomic, assign) CGFloat borderWidth;
 
 /**
