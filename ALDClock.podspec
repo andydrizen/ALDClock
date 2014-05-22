@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ALDClock"
-  s.version      = "2.0.0"
+  s.version      = "2.0.1"
   s.summary      = "An interactive clock component for use in iOS projects."
 
   s.description  = <<-DESC
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'BSD', :file => 'LICENCE' }
   s.author       = { "Andy Drizen" => "andydrizen@gmail.com" }
   s.platform     = :ios
-  s.source       = { :git => "https://github.com/andydrizen/ALDClock.git", :tag => "2.0.0" }
+  s.source       = { :git => "https://github.com/andydrizen/ALDClock.git", :tag => "2.0.1" }
   s.source_files  = 'ALDClock.{h,m}'
   s.requires_arc = true
 end
