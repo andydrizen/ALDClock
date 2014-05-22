@@ -47,61 +47,76 @@ const CGFloat kALDClockAnimationIncrement = 30;
 @implementation ALDClock
 @synthesize minute = _minute, hour = _hour;
 
-- (id)initWithFrame:(CGRect)frame
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+	self = [super initWithCoder:aDecoder];
+	if (self) {
+		[self commonInit];
+	}
+	return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [super setBackgroundColor:[UIColor clearColor]];
-        
-        _secondsFromGMT = 0;
-        
-        // Have the hands pointing up initially.
-        _totalRotation = 0;
-        
-        // How wide should the clock be?
-        [self updateRadius];
-        
-        // Theminute hand can move smoothly or at second intervals.
-        _minuteHandMovesSmoothly = NO;
-        
-        // Set default colours
-        _clockFaceBackgroundColor = [UIColor colorWithWhite:0.97 alpha:1.0];
-        _majorMarkingColor = [UIColor colorWithWhite:0.3 alpha:1.0];
-        _minorMarkingColor = [UIColor colorWithWhite:0.4 alpha:1.0];
-        _minuteHandColor = [UIColor colorWithWhite:0.2 alpha:1.0];
-        _hourHandColor = [UIColor colorWithWhite:0.2 alpha:1.0];
-        
-        // Set default thicknesses
-        _majorMarkingThickness = 1.0f;
-        _minorMarkingThickness = 1.0f;
-        _minuteHandThickness = 5.0f;
-        _hourHandThickness = 5.0f;
-        
-        _majorMarkingLength = 5.0f;
-        _minorMarkingLength = 1.0f;
-        
-        _markingsInset = 5.0f;
-        
-        // Set the border properties
-        _borderWidth = 9.0f;
-		_borderColor = [UIColor blackColor];
-        
-        // Setup the default text attributes
-        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-        paragraphStyle.alignment = NSTextAlignmentCenter;
-        
-        _titleAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithWhite:0.2 alpha:1.0],
-                             NSParagraphStyleAttributeName: paragraphStyle,
-                             NSFontAttributeName : [UIFont systemFontOfSize:16.0f]};
-        _subtitleAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithWhite:0.4 alpha:1.0],
-                                NSParagraphStyleAttributeName: paragraphStyle,
-                                NSFontAttributeName : [UIFont systemFontOfSize:13.0f]};
-        
-        _digitAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithWhite:0.0 alpha:1.0],
-                             NSParagraphStyleAttributeName: paragraphStyle,
-                             NSFontAttributeName : [UIFont systemFontOfSize:16.0f]};
+        [self commonInit];
     }
     return self;
+}
+
+
+- (void)commonInit
+{
+	[super setBackgroundColor:[UIColor clearColor]];
+	
+	_secondsFromGMT = 0;
+	
+	// Have the hands pointing up initially.
+	_totalRotation = 0;
+	
+	// How wide should the clock be?
+	[self updateRadius];
+	
+	// Theminute hand can move smoothly or at second intervals.
+	_minuteHandMovesSmoothly = NO;
+	
+	// Set default colours
+	_clockFaceBackgroundColor = [UIColor colorWithWhite:0.97 alpha:1.0];
+	_majorMarkingColor = [UIColor colorWithWhite:0.3 alpha:1.0];
+	_minorMarkingColor = [UIColor colorWithWhite:0.4 alpha:1.0];
+	_minuteHandColor = [UIColor colorWithWhite:0.2 alpha:1.0];
+	_hourHandColor = [UIColor colorWithWhite:0.2 alpha:1.0];
+	
+	// Set default thicknesses
+	_majorMarkingThickness = 1.0f;
+	_minorMarkingThickness = 1.0f;
+	_minuteHandThickness = 5.0f;
+	_hourHandThickness = 5.0f;
+	
+	_majorMarkingLength = 5.0f;
+	_minorMarkingLength = 1.0f;
+	
+	_markingsInset = 5.0f;
+	
+	// Set the border properties
+	_borderWidth = 9.0f;
+	_borderColor = [UIColor blackColor];
+	
+	// Setup the default text attributes
+	NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+	paragraphStyle.alignment = NSTextAlignmentCenter;
+	
+	_titleAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithWhite:0.2 alpha:1.0],
+						 NSParagraphStyleAttributeName: paragraphStyle,
+						 NSFontAttributeName : [UIFont systemFontOfSize:16.0f]};
+	_subtitleAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithWhite:0.4 alpha:1.0],
+							NSParagraphStyleAttributeName: paragraphStyle,
+							NSFontAttributeName : [UIFont systemFontOfSize:13.0f]};
+	
+	_digitAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithWhite:0.0 alpha:1.0],
+						 NSParagraphStyleAttributeName: paragraphStyle,
+						 NSFontAttributeName : [UIFont systemFontOfSize:16.0f]};
 }
 
 - (void)updateRadius
