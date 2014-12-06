@@ -19,5 +19,5 @@ and add it to your view.
 You can also add this project to yours by using CocoaPods. To do this, add the following line to your Podfile:
 
 ```
-pod 'ALDClock`, '~>2.0'
+pod 'ALDClock', '~>2.0'
 ```
